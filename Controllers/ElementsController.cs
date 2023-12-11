@@ -56,15 +56,13 @@ namespace Lab2ATP.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,GroupId,Name")] Element element)
         {
-            if (ModelState.IsValid)
-            {
+           
                 _context.Add(element);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+          
             ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id", element.GroupId);
             return View(element);
         }

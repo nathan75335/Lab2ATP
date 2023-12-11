@@ -1,0 +1,5 @@
+﻿@Lab2ATP_HostAddress = https://localhost:7084
+
+GET {{Lab2ATP_HostAddress}}/productelements/index/{id}
+
+###

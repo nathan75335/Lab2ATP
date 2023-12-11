@@ -59,12 +59,11 @@ namespace Lab2ATP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,DepartmentId")] Product product)
         {
-            if (ModelState.IsValid)
-            {
+           
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+           
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Id", product.DepartmentId);
             return View(product);
         }

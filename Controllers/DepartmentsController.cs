@@ -58,12 +58,11 @@ namespace Lab2ATP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Department department)
         {
-            if (ModelState.IsValid)
-            {
+          
                 _context.Add(department);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+          
             return View(department);
         }
 
